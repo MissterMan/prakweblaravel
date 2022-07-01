@@ -5,7 +5,7 @@
         <h1>{{ $category_title }}</h1>
         @foreach ($news as $item)
             <div class="home__news">
-                <h2><a class="news__title" href="/{{ $item->id }}">{{ $item->news_title }}</a></h2>
+                <h2><a class="news__title" href="/{{ $item->news_slug }}">{{ $item->news_title }}</a></h2>
                 <p class="news__content">
                     {{ $item->excerpt }}
                 </p>

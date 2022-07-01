@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/login', [LoginController::class, 'authcoba']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', [AdminController::class, 'adminDashboard'])->middleware('auth');

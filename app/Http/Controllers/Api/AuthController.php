@@ -1,35 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
-
-    public function authcoba(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('/admin');
-        }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
-    }
-
     public function authenticate(Request $request)
     {
         $credentials = $request->only(
@@ -86,10 +68,10 @@ class LoginController extends Controller
         return view('stisla.pages.login-page');
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         auth()->logout();
 
-        return redirect('/');
+        return response()->json(['message' => 'Logged out']);
     }
 }

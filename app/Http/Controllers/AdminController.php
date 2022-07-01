@@ -48,7 +48,7 @@ class AdminController extends Controller
 
     public function updatenews(Request $request)
     {
-        $berita = News::where('id', $request->id)->update([
+        $news = News::where('id', $request->id)->update([
             'news_title' => $request->news_title,
             'news_content' => $request->news_content,
             'news_slug' => $request->news_slug,

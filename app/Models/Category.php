@@ -13,4 +13,9 @@ class Category extends Model
     {
         return $this->hasMany(News::class);
     }
+
+    public function Bookapi()
+    {
+        return $this->hasMany(Bookapi::class);
+    }
 }
