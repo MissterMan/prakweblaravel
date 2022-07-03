@@ -21,13 +21,15 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/login', [LoginController::class, 'authcoba']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/admin', [AdminController::class, 'adminDashboard'])->middleware('auth');
-Route::get('/table', [AdminController::class, 'adminTable'])->name('table')->middleware('auth');
-Route::get('/form', [AdminController::class, 'create'])->middleware('auth');
-Route::post('/posts', [AdminController::class, 'store'])->middleware('auth');
-Route::get('/getupdate/{id}', [AdminController::class, 'getupdate'])->middleware('auth');
-Route::post('/update/{id}', [AdminController::class, 'updatenews'])->middleware('auth');
-Route::delete('/delete/{id}', [AdminController::class, 'destroy'])->name('delete')->middleware('auth');
+// Route::get('/admin', [AdminController::class, 'adminDashboard'])->middleware('auth');
+// Route::get('/table', [AdminController::class, 'adminTable'])->name('table')->middleware('auth');
+// Route::get('/form', [AdminController::class, 'create'])->middleware('auth');
+// Route::post('/posts', [AdminController::class, 'store'])->middleware('auth');
+// Route::get('/getupdate/{id}', [AdminController::class, 'getupdate'])->middleware('auth');
+// Route::post('/update/{id}', [AdminController::class, 'updatenews'])->middleware('auth');
+// Route::delete('/delete/{id}', [AdminController::class, 'destroy'])->name('delete')->middleware('auth');
+
+Route::resource('/admin', \App\Http\Controllers\AdminController::class)->middleware('auth');
 
 Route::get('/profile', [NewsController::class, 'profile']);
 Route::get('/', [NewsController::class, 'home']);

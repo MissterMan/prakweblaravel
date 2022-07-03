@@ -35,22 +35,22 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'prayogi@gmail.com'
         // ]);
 
-        Author::create([
-            'author_name' => 'Romli',
-            'author_username' => 'RomliGaming',
-            'password' => bcrypt('123'),
-            'email' => 'romli@gmail.com'
+        // Author::create([
+        //     'author_name' => 'Romli',
+        //     'author_username' => 'RomliGaming',
+        //     'password' => bcrypt('123'),
+        //     'email' => 'romli@gmail.com'
+        // ]);
+
+        Category::create([
+            'category_name' => 'Komputer',
+            'category_slug' => 'komputer',
         ]);
 
-        // Category::create([
-        //     'category_name' => 'Komputer',
-        //     'category_slug' => 'komputer',
-        // ]);
-
-        // Category::create([
-        //     'category_name' => 'Design',
-        //     'category_slug' => 'design',
-        // ]);
+        Category::create([
+            'category_name' => 'Design',
+            'category_slug' => 'design',
+        ]);
 
         // News::factory(10)->create();
         // User::factory(1)->create();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
@@ -70,8 +71,7 @@ class AuthController extends Controller
 
     public function logout()
     {
-        auth()->logout();
-
+        Auth::guard('api')->logout();
         return response()->json(['message' => 'Logged out']);
     }
 }
